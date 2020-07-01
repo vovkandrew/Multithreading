@@ -9,17 +9,10 @@ public class ImplementingRunnable implements Runnable{
     }
 
     public void run() {
-        try {
-            PrintStream fileOut = new PrintStream("src/main/java/output.txt");
-            System.setOut(fileOut);
-            System.out.println("Runnable class has been created");
-            while (counter.getCounter() < 100) {
-                counter.increase();
-                System.out.println("Runnable counter = " + counter.getCounter());
-            }
-            System.out.println("Runnable has died");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        while (counter.getCounter() < 100) {
+            counter.increase();
+            System.out.println("Runnable counter = " + counter.getCounter());
         }
+        System.out.println("Runnable has died");
     }
 }

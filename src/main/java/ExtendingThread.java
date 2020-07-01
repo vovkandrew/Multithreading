@@ -10,17 +10,10 @@ public class ExtendingThread extends Thread{
 
     @Override
     public void run() {
-        try {
-            PrintStream fileOut = new PrintStream("src/main/java/output.txt");
-            System.setOut(fileOut);
-            System.out.println("Thread class has been created");
-            while (counter.getCounter() < 100) {
-                counter.increase();
-                System.out.println("Thread counter = " + counter.getCounter());
-            }
-            System.out.println("Thread has died");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        while (counter.getCounter() < 100) {
+            counter.increase();
+            System.out.println("Thread counter = " + counter.getCounter());
         }
+        System.out.println("Thread has died");
     }
 }
